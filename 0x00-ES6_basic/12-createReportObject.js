@@ -1,9 +1,18 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-param-reassign */
-import createEmployeesObject from './11-createEmployeesObject';
 
 export default function createReportObject(employeesList) {
-  employeesList = createEmployeesObject();
-  return employeesList;
+  const allEmployees = {};
+
+  for (const [departmentName, employees] of Object.entries(employeesList)) {
+    allEmployees[departmentName] = [...employees];
+  }
+
+  return {
+    allEmployees,
+    getNumberOfDepartments() {
+      return Object.keys(employeesList).length;
+    },
+  };
 }
