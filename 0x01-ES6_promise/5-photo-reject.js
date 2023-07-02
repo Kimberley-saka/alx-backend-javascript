@@ -2,7 +2,7 @@
 export default function uploadPhoto(fileName) {
   return new Promise((reject) => {
     reject(
-      console.log(`${fileName} cannot be processed`),
+      console.log(new Error(`${fileName} cannot be processed`)),
     );
   });
 }
